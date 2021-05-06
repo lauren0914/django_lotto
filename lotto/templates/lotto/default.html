@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- 이 문서가 html 파일이라고 알려주는 거 -->
+<html lang="ko">
+
+<head>
+ <title>My Little Lotto</title>
+ <!-- 사이트 제목처럼 나오는 부분 -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ <!-- 부트스트랩에서 css 파일 링크로 연결하는 거 -->
+ <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+ <!-- 구글 폰트 -->
+ <link rel='stylesheet' href="{% static 'css/lotto.css' %}"
+</head>
+
+<body>
+ <div class="page-header">
+   <!-- 만약에 id 였으면 css에서 .이 아니라, # 로 시작, 근데 class 사용빈도가 더 많음 -->
+   <h1>Selected Lotto Numbers
+     <a href="{% url 'new_lotto' %}">
+       <!-- 별명 기준으로 url패턴을 가져오는 < -->
+       <span class="glyphicon glyphicon-plus btn btn-default"></span>
+     </a>
+   </h1>
+ </div>
+
+ <div class="container lotto">
+   {% for lotto in lottos %}
+   <!-- 여기 lottos는 key값으로 받은 context이고 -->
+     <!-- <h2>{{ lotto.name }}</h2> -->
+
+     <h2>
+       <a href="{% url 'detail' lottokey=lotto.id %}">
+         {{lotto.name}}
+       </a>
+    </h2>
+     <p> {{ lotto.update_date }}</p>
+     <p> {{ lotto.lottos | linebreaksbr}} </p>
+     <!-- 얘는 테이블 정의해줄 때? 변수명 -->
+   {% endfor %}
+ </div>
+
+</body>
+</html>

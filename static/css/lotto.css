@@ -1,0 +1,22 @@
+.page-header {
+   background-color: #652596;
+   /* 배경색 */
+   margin-top: 0;
+   padding: 20px 20px 20px 40px;
+   /* 시계 방향으로 */
+   font-family: 'Space Mono', monospace;
+   /* div의 font, google web font에서 복붙해서 html head에 넣어서 세팅해주고,
+   lotto.css에 설정해주기*/
+}
+/* color  글자색깔 */
+.page-header h1 {
+ color: #FFFFFF;
+}
+
+.container {
+ font-family: 'Space Mono', monospace;
+}
+
+.container h2 {
+ color: #B9F442;
+}
